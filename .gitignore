@@ -1,0 +1,32 @@
+# Build Outputs
+[Bb]in/
+[Oo]bj/
+publish/
+
+# Source Code (ソース非公開: C#コード・プロジェクト定義・開発ツール)
+*.cs
+*.csproj
+*.sln
+*.manifest
+build.bat
+tools/
+アイコンデザイン仕様書.md
+
+# IDE / Editor Files
+.vs/
+.vscode/
+*.user
+*.suo
+*.rsuser
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Logs & Temporary Files
+*.log
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
