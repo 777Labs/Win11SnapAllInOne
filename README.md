@@ -6,7 +6,7 @@
 
 **Windows 11 のスナップレイアウト・画面端スナップ・ドラッグ視覚効果の不整合を瞬時に診断し、ワンクリックで一括修復するスタンドアロンツール**
 
-[![Release](https://img.shields.io/badge/Release-v1.0.0-238636?style=flat-square)](https://github.com/777Labs/Win11SnapAllInOne/releases)
+[![Release](https://img.shields.io/badge/Release-v1.1.0-238636?style=flat-square)](https://github.com/777Labs/Win11SnapAllInOne/releases)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2011%20(64--bit)-0078D4?style=flat-square)](https://github.com/777Labs/Win11SnapAllInOne)
 [![License](https://img.shields.io/badge/License-Freeware-blue?style=flat-square)](LICENSE)
 
@@ -36,8 +36,8 @@
   - レジストリ値だけでなく `SystemParametersInfo` API の実効値まで一括診断し、設定の不整合や無効化されている項目を赤色ハイライトで表示します。
 - ⚡ **ワンクリック一括修復・即時反映**:
   - レジストリの修復、Win32 API（`SPIF_UPDATEINIFILE | SPIF_SENDCHANGE`）の適用、`WM_SETTINGCHANGE` ブロードキャスト、およびエクスプローラー（`explorer.exe`）の再起動までを一括で実行します。
-- 🎛️ **個別項目の ON / OFF 切替・再スキャン**:
-  - 一覧の行をダブルクリック、または「選択項目を ON / OFF 切替」ボタンで項目ごとの状態切り替えに対応しています（ポリシー制限項目は一括修復ボタンから解除を実行します）。
+- 🎛️ **個別項目の ON / OFF 切替 & エクスプローラー即時再起動**:
+  - 一覧の行をダブルクリック、または「選択項目を ON / OFF 切替」ボタンで項目ごとの状態切り替えに対応（チェック有効時は切り替え後に自動でエクスプローラーを再起動し即時反映）。また「今すぐエクスプローラーを再起動」ボタンからいつでも手動でシェル再起動を実行できます。
 - 🎨 **ダークモード対応（システム / ライト / ダーク）**:
   - 画面右上の「表示テーマ」スイッチから「システム」「ライト」「ダーク」をいつでも切り替え可能。「システム」選択時は Windows 11 のアプリモード設定に連動してリアルタイムに追従します。
 - 🛡️ **競合しやすい常駐ツールの自動検出**:
@@ -66,7 +66,7 @@
 ## 📥 ダウンロードと使い方
 
 ### 1. ダウンロード
-右側の [**Releases**](https://github.com/777Labs/Win11SnapAllInOne/releases) ページから最新の `Win11SnapAllInOne-v1.0.0-win-x64.zip`（または `Win11SnapAllInOne.exe`）をダウンロードしてください。
+右側の [**Releases**](https://github.com/777Labs/Win11SnapAllInOne/releases) ページから最新の `Win11SnapAllInOne-v1.1.0-win-x64.zip`（または `Win11SnapAllInOne.exe`）をダウンロードしてください。
 
 ### 2. 起動方法
 1. ダウンロードした ZIP ファイルをお好みのフォルダーに展開（解凍）します。
@@ -92,7 +92,8 @@
 | 操作 / オプション | 動作 |
 | :--- | :--- |
 | `⚡ すべて一括修復・有効化（即時反映）` | 全9項目を有効化・修復し、`WM_SETTINGCHANGE` 送信（およびチェック有効時はエクスプローラー再起動）を実行 |
-| `選択項目を ON / OFF 切替` / 行のダブルクリック | 選択中の設定項目を個別に ON / OFF 切替（ポリシー制限項目を除く） |
+| `選択項目を ON / OFF 切替` / 行のダブルクリック | 選択中の設定項目を個別に ON / OFF 切替（チェック有効時は自動でエクスプローラーを再起動し即時反映） |
+| `今すぐエクスプローラーを再起動` | `WM_SETTINGCHANGE` 送信およびエクスプローラー（`explorer.exe`）の再起動を即座に実行 |
 | `再スキャン` | 現在のレジストリ・API 状態および競合プロセスを再診断 |
 | `表示テーマ`（`システム` / `ライト` / `ダーク`） | 外観テーマ（OS連動・ライト・ダーク）を即座に切り替え、選択内容を保存（`%LOCALAPPDATA%\777 Labs\Win11SnapAllInOne\settings.json`） |
 | `Win11SnapAllInOne.exe /fix`（または `--fix`） | GUI を表示せずに一括修復＋エクスプローラー再起動を実行して終了 |
